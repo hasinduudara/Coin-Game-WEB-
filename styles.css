@@ -1,0 +1,139 @@
+/* styles.css */
+body {
+    background: linear-gradient(135deg, #6dd5ed, #2193b0);
+    color: white;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .game-title {
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px #000;
+  }
+  
+  .game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .coin {
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .coin:active {
+    transform: scale(1.1);
+    animation: shake 0.2s ease-in-out;
+  }
+  
+  @keyframes shake {
+    0%, 100% {
+      transform: rotate(0deg) scale(1.1);
+    }
+    25% {
+      transform: rotate(10deg) scale(1.1);
+    }
+    50% {
+      transform: rotate(-10deg) scale(1.1);
+    }
+    75% {
+      transform: rotate(10deg) scale(1.1);
+    }
+  }
+  
+  .score {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #ffd700;
+    text-shadow: 1px 1px 3px #000;
+  }
+  
+  #reset-btn {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+
+  /* styles.css */
+body {
+    background: linear-gradient(135deg, #6dd5ed, #2193b0);
+    color: white;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .game-title {
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px #000;
+  }
+  
+  .game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .coin {
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .coin:active {
+    transform: scale(1.1);
+    animation: shake 0.2s ease-in-out;
+  }
+  
+  @keyframes shake {
+    0%, 100% {
+      transform: rotate(0deg) scale(1.1);
+    }
+    25% {
+      transform: rotate(10deg) scale(1.1);
+    }
+    50% {
+      transform: rotate(-10deg) scale(1.1);
+    }
+    75% {
+      transform: rotate(10deg) scale(1.1);
+    }
+  }
+  
+  .score {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #ffd700;
+    text-shadow: 1px 1px 3px #000;
+  }
+  
+  #reset-btn {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+  }
+
+  .floating-coin {
+    position: absolute;
+    color: #ffd700;
+    font-size: 1.5rem;
+    font-weight: bold;
+    animation: floatUp 1s ease-in-out forwards;
+    pointer-events: none;
+    z-index: 1000;
+  }
+  
+  @keyframes floatUp {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+  }
+  
