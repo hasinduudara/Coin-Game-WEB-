@@ -18,6 +18,8 @@
         <img src="coin.png" alt="Coin" class="coin" id="coin" />
         <div class="score mt-3">
           <h3>Coins Collected: <span id="score">0</span></h3>
+          <h4>USDT Equivalent: <span id="usdt">0.00</span> USDT</h4>
+          <p class="mt-2">Minimum withdrawal value: 100 USDT</p>
         </div>
       </div>
       <button class="btn btn-primary mt-4" id="reset-btn">Reset</button>
@@ -27,21 +29,25 @@
     <script>
       document.addEventListener("DOMContentLoaded", (event) => {
         const scoreElement = document.getElementById("score");
+        const usdtElement = document.getElementById("usdt");
         const coinElement = document.getElementById("coin");
         const resetButton = document.getElementById("reset-btn");
 
         let score = localStorage.getItem("coinCount") || 0;
         scoreElement.textContent = score;
+        usdtElement.textContent = (score / 10000).toFixed(2);
 
         coinElement.addEventListener("click", () => {
           score++;
           scoreElement.textContent = score;
+          usdtElement.textContent = (score / 10000).toFixed(2);
           localStorage.setItem("coinCount", score);
         });
 
         resetButton.addEventListener("click", () => {
           score = 0;
           scoreElement.textContent = score;
+          usdtElement.textContent = (score / 10000).toFixed(2);
           localStorage.setItem("coinCount", score);
         });
       });
