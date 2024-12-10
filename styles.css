@@ -119,7 +119,7 @@ body {
   .floating-coin {
     position: absolute;
     color: #ffd700;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     animation: floatUp 1s ease-in-out forwards;
     pointer-events: none;
