@@ -22,8 +22,34 @@
           <p class="mt-2">Minimum withdrawal value: 100 USDT</p>
         </div>
       </div>
-      <button class="btn btn-success mt-4" id="withdraw-btn">Withdraw</button>
       <p id="withdraw-message" class="mt-2"></p>
+
+      <!-- Withdrawal form -->
+      <div class="container text-center mt-5">
+        <form id="withdraw-form">
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required />
+          </div>
+          <div class="mb-3">
+            <label for="usdt-address" class="form-label"
+              >TRC20 USDT Address</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="usdt-address"
+              required
+            />
+          </div>
+        </form>
+        <button class="btn btn-success mt-4" id="withdraw-btn">Withdraw</button>
+        <p id="withdraw-summary" class="mt-2"></p>
+      </div>
     </div>
 
     <!-- Placeholder for ads -->
@@ -41,6 +67,8 @@
         const coinElement = document.getElementById("coin");
         const withdrawButton = document.getElementById("withdraw-btn");
         const withdrawMessage = document.getElementById("withdraw-message");
+        const withdrawForm = document.getElementById("withdraw-form");
+        const withdrawSummary = document.getElementById("withdraw-summary");
 
         let score = localStorage.getItem("coinCount") || 0;
         scoreElement.textContent = score;
@@ -55,11 +83,26 @@
 
         withdrawButton.addEventListener("click", () => {
           const usdt = score / 10000;
-          if (usdt >= 100) {
-            withdrawMessage.textContent = "Withdrawal successful!";
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const usdtAddress = document.getElementById("usdt-address").value;
+
+          if (name && email && usdtAddress) {
+            if (usdt >= 100) {
+              score = 0;
+              scoreElement.textContent = score;
+              usdtElement.textContent = (score / 10000).toFixed(2);
+              localStorage.setItem("coinCount", score);
+              withdrawSummary.textContent = `Withdrawal successful! Amount withdrawn: ${usdt.toFixed(
+                2
+              )} USDT. Remaining balance: 0 USDT.`;
+              withdrawForm.reset();
+            } else {
+              withdrawMessage.textContent =
+                "You need at least 100 USDT to withdraw.";
+            }
           } else {
-            withdrawMessage.textContent =
-              "You need at least 100 USDT to withdraw.";
+            withdrawMessage.textContent = "Please fill in all the fields.";
           }
         });
 
