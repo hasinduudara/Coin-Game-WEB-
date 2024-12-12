@@ -128,7 +128,7 @@
         const getCoinsButton = document.getElementById("get-coins-btn");
 
         getCoinsButton.addEventListener("click", () => {
-          score += 10;
+          score = parseInt(score) + 10;
           scoreElement.textContent = score;
           usdtElement.textContent = (score / 10000).toFixed(2);
           localStorage.setItem("coinCount", score);
