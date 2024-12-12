@@ -29,6 +29,14 @@
       </div>
       <p id="withdraw-message" class="mt-2"></p>
 
+      <!-- Get 10 coins button and description -->
+      <div class="container text-center mt-5">
+        <button class="btn btn-primary mt-4" id="get-coins-btn">
+          Get 10 coins
+        </button>
+        <p>Click the button and close the webpage after it loads.</p>
+      </div>
+
       <!-- Withdrawal form -->
       <div class="container text-center mt-5">
         <form id="withdraw-form">
@@ -61,6 +69,12 @@
     <div class="container text-center mt-5">
       <div id="ad-container" class="mb-4">
         <!-- Ad content will be loaded here -->
+        <script
+          async="async"
+          data-cfasync="false"
+          src="//pl24603937.profitablecpmrate.com/d3ff5628a481d8e926f3aa93c7f7695a/invoke.js"
+        ></script>
+        <div id="container-d3ff5628a481d8e926f3aa93c7f7695a"></div>
       </div>
     </div>
 
@@ -109,6 +123,20 @@
           } else {
             withdrawMessage.textContent = "Please fill in all the fields.";
           }
+        });
+
+        const getCoinsButton = document.getElementById("get-coins-btn");
+
+        getCoinsButton.addEventListener("click", () => {
+          score += 10;
+          scoreElement.textContent = score;
+          usdtElement.textContent = (score / 10000).toFixed(2);
+          localStorage.setItem("coinCount", score);
+          window.open(
+            "https://www.profitablecpmrate.com/s4d9st25?key=e41053b7b8515377ab48372b5db24cf3",
+            "popup",
+            "width=600,height=400"
+          );
         });
 
         // Load ad content
